@@ -1,0 +1,24 @@
+I followed this tutorial https://www.youtube.com/watch?v=GGPPkUcHleQ
+
+The entire project structure was created by using a maven archtype...
+
+template.yml was also generated..it's purpose is to define infrastructure as code, in this
+case in yaml format..
+    https://aws.amazon.com/serverless/sam/
+
+If you start the application locally, remember to go in the pom file and make sure that the artifact
+spring-boot-starter-tomcat is not excluded.
+
+http://localhost:8080/api/posts
+    the posts are taken from https://jsonplaceholder.typicode.com/posts ...this is a dummy data service
+
+https://61qwi13i35.execute-api.eu-north-1.amazonaws.com/production/api/posts
+    AWS link for the app...You can use the Postman installed locally, the requests are in the folder
+    SpringBoot3AwsLambda
+
+
+Obviously AWS is complex...lots more to learn on that front
+
+
+
+TODO Create git repo for this..
