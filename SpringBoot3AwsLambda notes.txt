@@ -12,13 +12,26 @@ spring-boot-starter-tomcat is not excluded.
 http://localhost:8080/api/posts
     the posts are taken from https://jsonplaceholder.typicode.com/posts ...this is a dummy data service
 
-https://61qwi13i35.execute-api.eu-north-1.amazonaws.com/production/api/posts
+AWS stuff
+    When building the zip that will contain the application in order to deploy it on AWS, you need to have
+    the profile "assembly-zip" enabled.
+
+    https://61qwi13i35.execute-api.eu-north-1.amazonaws.com/production/api/posts
     AWS link for the app...You can use the Postman installed locally, the requests are in the folder
     SpringBoot3AwsLambda
 
 
-Obviously AWS is complex...lots more to learn on that front
+    Obviously AWS is complex...lots more to learn on that front
 
 
+Creating a Docker image out of the project and running the app via that image
+    (this is best in cases where you want to deploy your app via a Docker image, to a machine that does not
+    have JRE installed for example)
 
-TODO Create git repo for this..
+    1. mvn spring-boot:build-image  (run this without having the profile "assembly-zip" enabled)
+    2. docker image ls -a       (in order to find the name of the newly created image)
+    3. docker run -it -p8080:8080 com.testehan/springboot3-aws-lambda:latest
+    4. if everything works on, you should be able to access http://localhost:8080/api/posts
+
+    more info about deploying to production :
+        https://github.com/danvega/content-calendar/blob/main/docs/production.md
